@@ -1,7 +1,8 @@
 import React from 'react';
-import { ReactReduxContext, connect } from 'react-redux';
+import {  connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import authSelectors from '../../redux/auth/authSelectors';
+import authOperations from '../../redux/auth/authOperations'
 
 import style from './Navigation.module.css'
 
@@ -9,7 +10,7 @@ import style from './Navigation.module.css'
 //import { Test } from './Navigation.styles';
 
 const Navigation = ({
-  avatar = "https://streamdps.ru/upload/iblock/ba4/ba43a8bf5b491168b4f74e9922c88c25.jpg",
+  avatar,
   name,
   onLogout,
   isAuthentificated
@@ -37,7 +38,12 @@ const Navigation = ({
 
 const mapStateToProps = state => ({
   isAuthentificated: authSelectors.isAuthentificated(state),
-  name: authSelectors.getUserName(state)
+  name: authSelectors.getUserName(state),
+  avatar: "https://streamdps.ru/upload/iblock/ba4/ba43a8bf5b491168b4f74e9922c88c25.jpg"
 })
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispathToProps = {
+  onLogout: authOperations.logOut
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Navigation);
