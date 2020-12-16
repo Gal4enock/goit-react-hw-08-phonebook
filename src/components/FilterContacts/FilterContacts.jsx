@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
-import contactsActions from '../redux/contacts/contactsActions.js';
-import contactsSelectors from '../redux/contacts/contactsSelectors';
+import contactsActions from '../../redux/contacts/contactsActions.js';
+import contactsSelectors from '../../redux/contacts/contactsSelectors';
 
 const Filter = ({ value, toFilter }) =>  (
     <div>

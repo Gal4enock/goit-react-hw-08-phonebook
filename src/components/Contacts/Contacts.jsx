@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import { connect } from "react-redux";
 
-import contactsOperations from '../redux/contacts/contactsOperations.js';
-import contactsSelectors from '../redux/contacts/contactsSelectors';
+import contactsOperations from '../../redux/contacts/contactsOperations.js';
+import contactsSelectors from '../../redux/contacts/contactsSelectors';
 
 import style from "./Contacts.module.css";
 

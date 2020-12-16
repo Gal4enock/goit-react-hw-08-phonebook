@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Contacts from '../Contacts/Contacts';
 import ContactForm from '../ContactForm/ContactForm';
 import Filter from '../FilterContacts/FilterContacts';
-import contactsOperations from '../redux/contacts/contactsOperations';
-import contactsSelectors from '../redux/contacts/contactsSelectors';
+import contactsOperations from '../../redux/contacts/contactsOperations';
+import contactsSelectors from '../../redux/contacts/contactsSelectors';
 
 import Style from './App.module.css'
 
