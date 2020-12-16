@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'bootstrap';
+
 
 
 class LoginPage extends Component {
@@ -40,3 +40,5 @@ class LoginPage extends Component {
     )
   }
 }
+
+export default LoginPage

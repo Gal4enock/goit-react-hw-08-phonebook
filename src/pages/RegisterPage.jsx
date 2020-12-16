@@ -39,8 +39,11 @@ class RegisterPage extends Component {
             Password
              <input type="password" name="password" value={password} onChange={this.handleChange}/>
           </label>
+          <button className='btn btn-primary' type='submit'>Register!</button>
         </form>
       </div>
     )
   }
 }
+
+export default RegisterPage
