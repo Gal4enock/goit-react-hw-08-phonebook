@@ -48,13 +48,13 @@ const App = () => {
       <Navigation />
       <hr />
       <Suspense fallback={ <h1>Loading...</h1> }>
-      <Switch>
-        <Route path="/" exact component={lazy(() => import('../../pages/HomePage'/* webpackChunkName: "home-page" */))} />
-        <Route path="/register" exact component={lazy(() => import('../../pages/RegisterPage'/* webpackChunkName: "register-page" */))} />
-        <Route path="/login" component={lazy(() => import('../../pages/LoginPage'/* webpackChunkName: "login-page" */))}/>
+        <Switch>
+          <Route path="/" exact component={lazy(() => import('../../pages/HomePage'/* webpackChunkName: "home-page" */))} />
+          <Route path="/register" exact component={lazy(() => import('../../pages/RegisterPage'/* webpackChunkName: "register-page" */))} />
+          <Route path="/login" component={lazy(() => import('../../pages/LoginPage'/* webpackChunkName: "login-page" */))}/>
        
         </Switch>
-        </Suspense>
+      </Suspense>
     </div>
   )
 }

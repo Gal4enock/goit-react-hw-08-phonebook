@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import authOperations from '../redux/auth/authOperations'
 
 
 
@@ -17,6 +20,7 @@ class RegisterPage extends Component {
     e.preventDefault();
 
     this.props.onRegister({ ...this.state });
+    this.setState({name: '', email: '', password: ''})
 
   }
 
@@ -46,4 +50,4 @@ class RegisterPage extends Component {
   }
 }
 
-export default RegisterPage
+export default connect(null , {onRegister: authOperations.register})(RegisterPage)
