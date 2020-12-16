@@ -1,5 +1,7 @@
 import React from 'react';
+import { ReactReduxContext, connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import authSelectors from '../../redux/auth/authSelectors';
 
 import style from './Navigation.module.css'
 
@@ -9,7 +11,8 @@ import style from './Navigation.module.css'
 const Navigation = ({
   avatar = "https://streamdps.ru/upload/iblock/ba4/ba43a8bf5b491168b4f74e9922c88c25.jpg",
   name,
-  onLogout
+  onLogout,
+  isAuthentificated
 }) => (
   <div className="NavigationWrapper wrap">
     <ul className={style.List}>
@@ -23,14 +26,18 @@ const Navigation = ({
         activeClassName={style.Navigation_link_active} >
       Login</NavLink></li>
     </ul>
-    <div >
+    {isAuthentificated && 
+    <div className={style.avatar}>
       <img src={avatar} width='32' alt="" />
-      <span>Welcome, </span>
+      <span>Welcome, {name} </span>
       <button className='btn btn-primary log' type='button' onClick={onLogout}>Logout</button>
-  </div>
+  </div>}
   </div>
 );
 
+const mapStateToProps = state => ({
+  isAuthentificated: authSelectors.isAuthentificated(state),
+  name: authSelectors.getUserName(state)
+})
 
-
-export default Navigation;
+export default connect(mapStateToProps)(Navigation);
