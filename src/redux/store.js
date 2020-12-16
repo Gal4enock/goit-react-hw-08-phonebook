@@ -14,7 +14,7 @@ const authPersister = {
   whitelist:'token'
 }
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     auth: persistReducer(authPersister, authReducer)

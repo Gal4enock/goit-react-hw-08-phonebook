@@ -15,7 +15,7 @@ const Navigation = ({
   onLogout,
   isAuthentificated
 }) => (
-  <div className="NavigationWrapper wrap">
+  <div className="wrap NavigationWrapper">
     <ul className={style.List}>
       <li><NavLink exact to="/" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >

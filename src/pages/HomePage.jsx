@@ -22,7 +22,7 @@ componentDidMount() {
         
         <h1 className={Style.fontColor}>Phonebook</h1>
         <ContactForm />
-        <h2>Find contacts by name</h2>
+        <h2 className={Style.title}>Find contacts by name</h2>
         <Filter />
         <Contacts />
       </div>
