@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css'
 
 
 
@@ -26,15 +27,37 @@ class LoginPage extends Component {
         <h1>Login Page</h1>
 
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Email
-             <input type="email" name="email" value={email} onChange={this.handleChange}/>
-          </label>
-          <label>
-            Password
-             <input type="password" name="password" value={password} onChange={this.handleChange}/>
-          </label>
-          <button className='btn btn-primary' type='submit'>Login!</button>
+          <div className="form-group form" >
+            <div className="input-group mb-3 size">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Email"
+                aria-label="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange} />
+              <div className="input-group-append">
+                <span className="input-group-text" id="basic-addon2">Email</span>
+              </div>  
+          </div>
+          
+          <div className="input-group mb-3 size">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                aria-label="Password"
+                name="password"
+                value={password}
+                onChange={this.handleChange} />
+              <div className="input-group-append">
+                <span className="input-group-text" id="basic-addon2">Password</span>
+              </div>  
+          </div>
+
+            <button className='btn btn-primary' type='submit'>Login!</button>
+            </div>
         </form>
       </div>
     )

@@ -1,4 +1,5 @@
-import React, { Component,} from 'react';
+import React, { Component, } from 'react';
+// import {} from 'bootstrap'
 
 import Contacts from '../components/Contacts/Contacts'
 import ContactForm from '../components/ContactForm/ContactForm';
