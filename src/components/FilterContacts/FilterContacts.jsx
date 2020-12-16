@@ -4,13 +4,16 @@ import { connect } from "react-redux";
 import contactsActions from '../../redux/contacts/contactsActions.js';
 import contactsSelectors from '../../redux/contacts/contactsSelectors';
 
+import  '../../pages/style.css'
+
 const Filter = ({ value, toFilter }) =>  (
-    <div>
+    <div className='box'>
     <input
       type="text"
       name="filter"
       value={value}
-      onChange={e => toFilter(e.target.value)} />
+      onChange={e => toFilter(e.target.value)}
+    className='input'/>
     </div>
   )
 

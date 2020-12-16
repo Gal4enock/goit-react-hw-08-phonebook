@@ -15,7 +15,7 @@ const Navigation = ({
   onLogout,
   isAuthentificated
 }) => (
-  <div className="wrap NavigationWrapper">
+  <div className="NavigationWrapper">
     <ul className={style.List}>
       <li><NavLink exact to="/" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
@@ -30,7 +30,7 @@ const Navigation = ({
     {isAuthentificated && 
     <div className={style.avatar}>
       <img src={avatar} width='32' alt="" />
-      <span>Welcome, {name} </span>
+      <span> Welcome, {name} </span>
       <button className='btn btn-primary log' type='button' onClick={onLogout}>Logout</button>
   </div>}
   </div>
@@ -39,7 +39,7 @@ const Navigation = ({
 const mapStateToProps = state => ({
   isAuthentificated: authSelectors.isAuthentificated(state),
   name: authSelectors.getUserName(state),
-  avatar: "https://streamdps.ru/upload/iblock/ba4/ba43a8bf5b491168b4f74e9922c88c25.jpg"
+  avatar: "https://w7.pngwing.com/pngs/980/304/png-transparent-computer-icons-user-profile-avatar-heroes-silhouette-avatar.png"
 })
 
 const mapDispathToProps = {

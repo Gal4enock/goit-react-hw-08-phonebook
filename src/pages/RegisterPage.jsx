@@ -29,7 +29,7 @@ class RegisterPage extends Component {
     const { name, email, password } = this.state;
     return (
       <div>
-        <h1>Register Page</h1>
+        <h1 className="title">Register Page</h1>
 
         <form onSubmit={this.handleSubmit}>
           <div className="form-group form" >

@@ -1,11 +1,16 @@
 .item {
   display: flex;
   justify-content: space-between;
-  width: 280px;
+  width: 300px;
   margin-bottom: 5px;
+  border: 2px solid black;
+  box-shadow: 10px 5px 5px rgb(85, 83, 83);
+  border-radius: 5px;
+  /* padding-top: 3px; */
 }
 .list {
   padding: 0px;
+  padding-top: 10px;
 }
 .enter {
   opacity: 0;

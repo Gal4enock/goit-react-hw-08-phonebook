@@ -2,6 +2,8 @@
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
+  border-radius: 7px;
+  box-shadow: 10px 5px 5px rgb(85, 83, 83);
 }
 .lable {
   font-weight: 700;
@@ -11,4 +13,6 @@
   max-width: 250px;
   padding: 10px;
   border: 2px solid black;
+  border-radius: 7px;
+  box-shadow: 10px 5px 5px rgb(85, 83, 83);
 }

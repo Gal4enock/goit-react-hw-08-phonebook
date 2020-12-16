@@ -34,7 +34,7 @@ class ContactForm extends Component {
       <label className={style.lable}>
         Number
       <input className={style.input} name="number" type="phone" value={this.state.number} onChange={this.handleChange} />
-        <button type="submit">Add contact</button>
+        <button className='btn btn-secondary' type="submit">Add contact</button>
       </label>
     </form>)
   }

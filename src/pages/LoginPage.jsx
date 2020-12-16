@@ -29,7 +29,7 @@ class LoginPage extends Component {
     const { email, password } = this.state;
     return (
       <div>
-        <h1>Login Page</h1>
+        <h1 className='title'>Login Page</h1>
 
         <form onSubmit={this.handleSubmit}>
           <div className="form-group form" >

@@ -19,7 +19,7 @@ const Contacts = function ({contacts, onDelete}) {
         classNames={style} >
         <li className={style.item}
           key={contact.id}>{contact.name}: {contact.number}
-          <button onClick={() => onDelete(contact.id)} type='button'>Delete</button> </li></CSSTransition>) : []}
+          <button className='btn btn-outline-secondary' onClick={() => onDelete(contact.id)} type='button'>Delete</button> </li></CSSTransition>) : []}
   </TransitionGroup>)
 }
 
