@@ -6,8 +6,12 @@ import style from './Navigation.module.css'
 
 //import { Test } from './Navigation.styles';
 
-const Navigation = () => (
-  <div className="NavigationWrapper">
+const Navigation = ({
+  avatar = "https://streamdps.ru/upload/iblock/ba4/ba43a8bf5b491168b4f74e9922c88c25.jpg",
+  name,
+  onLogout
+}) => (
+  <div className="NavigationWrapper wrap">
     <ul className={style.List}>
       <li><NavLink exact to="/" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
@@ -19,6 +23,11 @@ const Navigation = () => (
         activeClassName={style.Navigation_link_active} >
       Login</NavLink></li>
     </ul>
+    <div >
+      <img src={avatar} width='32' alt="" />
+      <span>Welcome, </span>
+      <button className='btn btn-primary log' type='button' onClick={onLogout}>Logout</button>
+  </div>
   </div>
 );
 

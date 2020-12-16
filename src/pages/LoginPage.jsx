@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import authOperations from '../redux/auth/authOperations';
+
 import './style.css'
 
 
@@ -17,6 +21,7 @@ class LoginPage extends Component {
     e.preventDefault();
 
     this.props.onLogin({ ...this.state });
+    this.setState({email: '', password: ''})
 
   }
 
@@ -30,7 +35,7 @@ class LoginPage extends Component {
           <div className="form-group form" >
             <div className="input-group mb-3 size">
               <input
-                type="password"
+                type="email"
                 className="form-control"
                 placeholder="Email"
                 aria-label="email"
@@ -64,4 +69,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage
+export default connect(null, {onLogin: authOperations.logIn})(LoginPage);

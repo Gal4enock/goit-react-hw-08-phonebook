@@ -35,7 +35,7 @@ class RegisterPage extends Component {
           <div className="form-group form" >
             <div className="input-group mb-3 size">
               <input
-                type="password"
+                type="text"
                 className="form-control"
                 placeholder="Name"
                 aria-label="Name"
@@ -48,7 +48,7 @@ class RegisterPage extends Component {
           </div>
             <div className="input-group mb-3 size">
               <input
-                type="password"
+                type="email"
                 className="form-control"
                 placeholder="Email"
                 aria-label="email"
