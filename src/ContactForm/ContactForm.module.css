@@ -1,0 +1,14 @@
+.input {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.lable {
+  font-weight: 700;
+  font-size: 20px;
+}
+.form {
+  max-width: 250px;
+  padding: 10px;
+  border: 2px solid black;
+}
