@@ -18,14 +18,14 @@ componentDidMount() {
   
   render() {
     return (
-        this.props.isAuthentificated ? <div className={Style.Container}>
+        <div className={Style.Container}>
         
           <h1 className={Style.fontColor}>Phonebook</h1>
           <ContactForm />
           <h2 className={Style.title}>Find contacts by name</h2>
           <Filter />
           <Contacts />
-        </div> : <h1>Please, log in!</h1>
+        </div>
     )
   }
   
