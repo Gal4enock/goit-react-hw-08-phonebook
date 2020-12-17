@@ -11,30 +11,19 @@ import { connect } from 'react-redux';
 
 class HomePage extends Component {
  
-componentDidMount() {
-    this.props.toFetchContacts()
-  }
+
   
   render() {
     return (
       <div className={Style.Container}>
         
-        <h1 className={Style.fontColor}>Phonebook</h1>
-        <ContactForm />
-        <h2 className={Style.title}>Find contacts by name</h2>
-        <Filter />
-        <Contacts />
+        <h1>Nice to see you!</h1>
+       
       </div>
     )}
   
 }
 
-const mapStateToProps = state => ({
-  isLoadingContacts: contactsSelectors.getLoading(state)
-})
 
-const mapDispatchToProps = {
-  toFetchContacts: contactsOperations.fetchContacts
-}
 
-export default connect (mapStateToProps, mapDispatchToProps)(HomePage)
+export default HomePage;

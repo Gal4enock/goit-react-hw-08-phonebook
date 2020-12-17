@@ -25,7 +25,10 @@ const Navigation = ({
         Register</NavLink></li>
       <li><NavLink exact to="/login" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
-      Login</NavLink></li>
+        Login</NavLink></li>
+      <li><NavLink exact to="/contacts" className={style.Navigation_link}
+        activeClassName={style.Navigation_link_active} >
+      Contacts</NavLink></li>
     </ul>
     {isAuthentificated ?
     <div className={style.avatar}>

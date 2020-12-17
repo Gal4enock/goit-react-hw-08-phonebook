@@ -58,7 +58,7 @@ class App extends Component {
             <Route path="/" exact component={lazy(() => import('../../pages/HomePage'/* webpackChunkName: "home-page" */))} />
             <Route path="/register" exact component={lazy(() => import('../../pages/RegisterPage'/* webpackChunkName: "register-page" */))} />
             <Route path="/login" component={lazy(() => import('../../pages/LoginPage'/* webpackChunkName: "login-page" */))} />
-       
+            <Route path="/contacts" component={lazy(() => import('../../pages/ContactsPage'/* webpackChunkName: "contacts-page" */))}/>
           </Switch>
         </Suspense>
       </div>
