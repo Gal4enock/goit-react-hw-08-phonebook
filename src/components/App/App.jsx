@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+import authOperations from '../../redux/auth/authOperations';
 
 import Navigation from '../Navigation'
 
@@ -41,21 +42,28 @@ import Style from './App.module.css'
 //   toFetchContacts: contactsOperations.fetchContacts
 // }
 
+class App extends Component {
 
-const App = () => {
-  return (
-    <div className={Style.Container}>
-      <Navigation />
-      <hr />
-      <Suspense fallback={ <h1>Loading...</h1> }>
-        <Switch>
-          <Route path="/" exact component={lazy(() => import('../../pages/HomePage'/* webpackChunkName: "home-page" */))} />
-          <Route path="/register" exact component={lazy(() => import('../../pages/RegisterPage'/* webpackChunkName: "register-page" */))} />
-          <Route path="/login" component={lazy(() => import('../../pages/LoginPage'/* webpackChunkName: "login-page" */))}/>
+  componentDidMount() {
+   this.props.onGetUser()
+  }
+  
+  render() {
+    return (
+      <div className={Style.Container}>
+        <Navigation />
+        <hr />
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Switch>
+            <Route path="/" exact component={lazy(() => import('../../pages/HomePage'/* webpackChunkName: "home-page" */))} />
+            <Route path="/register" exact component={lazy(() => import('../../pages/RegisterPage'/* webpackChunkName: "register-page" */))} />
+            <Route path="/login" component={lazy(() => import('../../pages/LoginPage'/* webpackChunkName: "login-page" */))} />
        
-        </Switch>
-      </Suspense>
-    </div>
-  )
+          </Switch>
+        </Suspense>
+      </div>
+    )
+  }
 }
-export default App;
+  
+export default connect(null, {onGetUser: authOperations.getCurrentUser})(App);

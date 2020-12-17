@@ -37,21 +37,47 @@ const logIn = credentials => dispatch => {
   .catch(err => dispatch(authActions.loginError(err)))
 }
 
-const logOut = () => dispatch => {
-  dispatch(authActions.loginRequest());
+const logOut = () => (dispatch, getState) => {
+  const { auth } = getState();
+  const { token: persitedToken } = auth;
+  token.set(persitedToken);
 
+  dispatch(authActions.logoutRequest());
+ 
   axios
     .post('/users/logout')
     .then(resp => {
       token.unset();
-      dispatch(authActions.loginSuccess())
+      console.log("success" , resp);
+      dispatch(authActions.logoutSuccess())
     })
-  .catch(err => dispatch(authActions.loginError(err)))
+    .catch(err => {
+      console.log('error', err);
+      dispatch(authActions.logoutError(err))
+    })
+}
+
+const getCurrentUser = () => (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (!persistedToken) {
+    return;
+  }
+
+  token.set(persistedToken);
+  dispatch(authActions.getCurrentUserRequest());
+
+  axios
+    .get('/users/current')
+    .then(resp => dispatch(authActions.getCurrentUserSuccess(resp.data)))
+  .catch(err => dispatch(authActions.getCurrentUserError(err)))
 }
 
 export default {
   register,
   logIn,
   logOut,
-  token
+  getCurrentUser
 }

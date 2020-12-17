@@ -27,12 +27,12 @@ const Navigation = ({
         activeClassName={style.Navigation_link_active} >
       Login</NavLink></li>
     </ul>
-    {isAuthentificated && 
+    {isAuthentificated ?
     <div className={style.avatar}>
       <img src={avatar} width='32' alt="" />
       <span> Welcome, {name} </span>
       <button className='btn btn-primary log' type='button' onClick={onLogout}>Logout</button>
-  </div>}
+  </div> : ''}
   </div>
 );
 

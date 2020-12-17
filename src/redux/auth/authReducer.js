@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
+// import {  } from 'redux';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import authActions from './authActions';
 
 const initialUserState = { name: null, email: null };
@@ -7,7 +7,7 @@ const initialUserState = { name: null, email: null };
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: (_, { payload }) => payload.user,
   [authActions.loginSuccess]: (_, { payload }) => payload.user,
-  [authActions.getCurrentUserSuccess]: (_, { payload }) => payload.user,
+  [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
   [authActions.logoutSuccess]: () => initialUserState,
 })
 
