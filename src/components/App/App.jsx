@@ -27,6 +27,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" component={lazy(() => import('../../pages/LoginPage'/* webpackChunkName: "login-page" */))} />
+             <Route path="/register" exact component={lazy(() => import('../../pages/RegisterPage'/* webpackChunkName: "register-page" */))} />
             <PrivateRoute path='/contacts' exact component={ContactsPage}/>
           </Switch>
         </Suspense>
