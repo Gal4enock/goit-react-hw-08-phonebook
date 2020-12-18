@@ -7,8 +7,7 @@ const toAddContact = (state, action) => {
     if (doubleName) {
       alert(`${action.payload.name} is already in contacts`);
       return
-    }
-  return [...state, action.payload];
+    } else return [...state, action.payload];
 }
 const toDelContact = (state, action) => state.filter(contact => contact.id !== action.payload);
 
