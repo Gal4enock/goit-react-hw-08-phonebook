@@ -12,9 +12,10 @@ import Style from "../components/App/App.module.css"
 
 class ContactsPage extends Component {
  
-componentDidMount() {
-    this.props.toFetchContacts()
-  }
+// componentDidMount() {
+//     this.props.toFetchContacts()
+//   }
+
   
   render() {
     return (
@@ -36,8 +37,8 @@ const mapStateToProps = state => ({
   isAuthentificated: authSelectors.isAuthentificated(state),
 })
 
-const mapDispatchToProps = {
-  toFetchContacts: contactsOperations.fetchContacts
-}
+// const mapDispatchToProps = {
+//   toFetchContacts: contactsOperations.fetchContacts
+// }
 
-export default connect (mapStateToProps, mapDispatchToProps)(ContactsPage)
+export default connect (mapStateToProps)(ContactsPage)

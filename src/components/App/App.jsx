@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch} from 'react-router-dom';
 import authOperations from '../../redux/auth/authOperations';
-
+import contactsOperations from '../../redux/contacts/contactsOperations'
 import Navigation from '../Navigation'
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
@@ -16,7 +16,8 @@ import Style from './App.module.css'
 class App extends Component {
 
   componentDidMount() {
-   this.props.onGetUser()
+    this.props.onGetUser();
+    this.props.toFetchContacts()
   }
   
   render() {
@@ -36,5 +37,10 @@ class App extends Component {
     )
   }
 }
+
+const mapDispatchToProps = {
+  toFetchContacts: contactsOperations.fetchContacts,
+  onGetUser: authOperations.getCurrentUser
+}
   
-export default connect(null, {onGetUser: authOperations.getCurrentUser})(App);
+export default connect(null, mapDispatchToProps)(App);
