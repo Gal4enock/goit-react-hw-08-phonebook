@@ -19,6 +19,11 @@ class ContactForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const doubleName = this.props.contacts.find(el => el.name === this.state.name);
+    if (doubleName) {
+      alert(`${this.state.name} is already in contacts`);
+      return
+    }
     this.props.toAddContacts(this.state.name, this.state.number);
     this.setState({
       name: '',
@@ -26,6 +31,7 @@ class ContactForm extends Component {
     })
    }
   render() {
+    console.log(this.props.contacts);
     return ( <form className={style.form} onSubmit={this.handleSubmit}>
       <label className={style.lable}>
         Name
@@ -40,10 +46,14 @@ class ContactForm extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+contacts: state.contacts.items
+})
+
 const mapDispatchToProps = dispatch => {
   // const { name, number } = this.state
   return {
     toAddContacts: (name, number) => dispatch(contactsOperations.AddContacts(name, number)),
   }
 }
-export default connect(null, mapDispatchToProps)(ContactForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
