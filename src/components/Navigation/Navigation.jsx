@@ -20,12 +20,12 @@ const Navigation = ({
       <li><NavLink exact to="/" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
       Home</NavLink></li>
-      <li><NavLink exact to="/register" className={style.Navigation_link}
+     { !isAuthentificated && <li><NavLink exact to="/register" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
-        Register</NavLink></li>
-      <li><NavLink exact to="/login" className={style.Navigation_link}
+        Register</NavLink></li>}
+      {!isAuthentificated && <li><NavLink exact to="/login" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
-        Login</NavLink></li>
+        Login</NavLink></li>}
       <li><NavLink exact to="/contacts" className={style.Navigation_link}
         activeClassName={style.Navigation_link_active} >
       Contacts</NavLink></li>

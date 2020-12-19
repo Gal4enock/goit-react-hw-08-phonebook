@@ -69,7 +69,7 @@ const getCurrentUser = () => (dispatch, getState) => {
   token.set(persistedToken);
   dispatch(authActions.getCurrentUserRequest());
 
-  axios
+ return axios
     .get('/users/current')
     .then(resp => dispatch(authActions.getCurrentUserSuccess(resp.data)))
   .catch(err => dispatch(authActions.getCurrentUserError(err)))

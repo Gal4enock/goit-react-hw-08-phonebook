@@ -8,6 +8,7 @@ import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
 import HomePage from '../../pages/HomePage';
 import ContactsPage from '../../pages/ContactsPage';
+import authSelectors from '../../redux/auth/authSelectors';
 
 
 import Style from './App.module.css'
@@ -16,8 +17,9 @@ import Style from './App.module.css'
 class App extends Component {
 
   componentDidMount() {
-    this.props.onGetUser();
-    this.props.toFetchContacts()
+  this.props.isAuth && this.props.onGetUser()
+   .then (this.props.toFetchContacts())
+    
   }
   
   render() {
@@ -38,9 +40,13 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isAuth: authSelectors.isAuthentificated(state)
+})
+
 const mapDispatchToProps = {
   toFetchContacts: contactsOperations.fetchContacts,
   onGetUser: authOperations.getCurrentUser
 }
   
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
